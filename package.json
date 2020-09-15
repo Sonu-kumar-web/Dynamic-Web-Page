@@ -1,0 +1,19 @@
+{
+   "name": "resolute-ai",
+   "version": "1.0.0",
+   "description": "It is Dynamic web page given (Assignment given by Resolute.AI)",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "keywords": [
+      "Resolute.ai",
+      "assignmet"
+   ],
+   "author": "Sonu Kumar",
+   "license": "ISC",
+   "dependencies": {
+      "express": "^4.17.1",
+      "nodemon": "^2.0.4"
+   }
+}
