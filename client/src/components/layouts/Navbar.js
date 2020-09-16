@@ -11,7 +11,7 @@ export const Navbar = () => {
          </h1>
          <ul>
             <li>
-               <a href="profiles.html">User</a>
+               <a href="/profile">User</a>
             </li>
             <li>
                <Link to="/register">Register</Link>
