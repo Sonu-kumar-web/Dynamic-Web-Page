@@ -9,6 +9,10 @@ app.use(expressLayouts);
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
 
+// body parser for req.body
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // Give access or set path for static files
 app.use(express.static("./assets"));
 
