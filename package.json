@@ -16,6 +16,7 @@
    "author": "Sonu Kumar",
    "license": "ISC",
    "dependencies": {
+      "axios": "^0.20.0",
       "ejs": "^3.1.5",
       "express": "^4.17.1",
       "express-ejs-layouts": "^2.5.0",
@@ -24,7 +25,8 @@
       "nodemon": "^2.0.4",
       "npm-client-modules": "0.0.1",
       "passport": "^0.4.1",
-      "passport-jwt": "^4.0.0"
+      "passport-jwt": "^4.0.0",
+      "react-router-dom": "^5.2.0"
    },
    "devDependencies": {
       "concurrently": "^5.3.0"
