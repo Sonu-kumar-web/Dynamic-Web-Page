@@ -6,7 +6,7 @@ import axios from "axios";
 import Profile from "../layouts/profile";
 
 class Login extends React.Component {
-   state = { email: "", password: "", token: "", isLoggedIn: false };
+   state = { email: "", password: "", token: "", isLoggedIn: false, id: "" };
 
    onSubmit = async (e) => {
       e.preventDefault();
@@ -21,14 +21,14 @@ class Login extends React.Component {
       try {
          let data = await axios.post("api/v1/user/login", userData);
 
-         const { token } = data.data.data;
-         console.log("Token", token);
+         const { token, userId } = data.data.data;
+         // console.log("Token", data.data);
 
          // Save token in local storage
          localStorage.setItem("jwtToken", token);
 
          if (data) {
-            this.setState({ isLoggedIn: true });
+            this.setState({ isLoggedIn: true, id: userId });
          }
       } catch (err) {
          console.log("Error In login ", err);
@@ -36,11 +36,12 @@ class Login extends React.Component {
    };
 
    render() {
-      const { email, password, isLoggedIn } = this.state;
+      const { email, password, isLoggedIn, id } = this.state;
+      // console.log("Login", id);
       return (
          <div>
             {isLoggedIn ? (
-               <Profile />
+               <Profile userid={id} loggedInValue={isLoggedIn} />
             ) : (
                <section className="container Sign-up">
                   <h1 className="large text-primary">Sign In</h1>

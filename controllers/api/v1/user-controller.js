@@ -45,6 +45,7 @@ module.exports.Login = async (req, res) => {
       return res.status(200).json({
          msg: "Sign-in successful",
          data: {
+            userId: user._id,
             token: jwt.sign(user.toJSON(), Keys.secretOrKey, {
                expiresIn: "4000000000",
             }),
