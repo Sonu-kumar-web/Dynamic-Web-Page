@@ -27,6 +27,14 @@ class Login extends React.Component {
          // Save token in local storage
          localStorage.setItem("jwtToken", token);
 
+         if (token) {
+            //Apply to every request
+            axios.defaults.headers.common["Authorization"] = token;
+         } else {
+            //Delete the auth header if no token
+            delete axios.defaults.headers.common["Authorization"];
+         }
+
          if (data) {
             this.setState({ isLoggedIn: true, id: userId });
          }

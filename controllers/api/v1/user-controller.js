@@ -7,7 +7,7 @@ module.exports.Signup = async (req, res) => {
    //    console.log(req.body);
 
    try {
-      if (req.body.password !== req.body.confirmPassword) {
+      if (req.body.password !== req.body.password2) {
          return res.status(400).json({
             message: "please enter same password",
          });

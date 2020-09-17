@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 
 import "../../App.css";
 
@@ -10,7 +10,7 @@ export const Register = () => {
       email: "",
       password: "",
       password2: "",
-      errors: {},
+      isSignup: false,
    });
 
    const { name, email, password, password2 } = formData;
@@ -23,16 +23,25 @@ export const Register = () => {
 
    const onSubmit = async (e) => {
       e.preventDefault();
-      if (password !== password2) {
-         console.log("Password do not match");
-      } else {
-         //  console.log(formData);
-         const newUser = {
-            name,
-            email,
-            password,
-            password2,
-         };
+      try {
+         let newUser = {};
+         if (password !== password2) {
+            console.log("Password do not match");
+         } else {
+            //  console.log(formData);
+            newUser = {
+               name,
+               email,
+               password,
+               password2,
+            };
+         }
+
+         let user = await axios.post("api/v1/user/signup", newUser);
+
+         console.log("Signup", user.data);
+      } catch (err) {
+         console.log("Error in Signup");
       }
    };
 
