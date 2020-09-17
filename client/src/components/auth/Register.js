@@ -10,7 +10,6 @@ export const Register = () => {
       email: "",
       password: "",
       password2: "",
-      isSignup: false,
    });
 
    const { name, email, password, password2 } = formData;

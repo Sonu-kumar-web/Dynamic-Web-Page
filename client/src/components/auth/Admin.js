@@ -11,6 +11,7 @@ class Admin extends React.Component {
       if (token) {
          this.setState({ isLoggedIn: true });
       }
+      // localStorage.removeItem("jwtToken");
    }
 
    onSubmit = async (e) => {
