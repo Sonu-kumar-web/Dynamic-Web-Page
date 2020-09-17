@@ -14,6 +14,7 @@ import Admin from "./components/auth/Admin";
 import Profile from "./components/layouts/profile";
 
 import "./App.css";
+import AllProfiles from "./components/layouts/AllProfiles";
 
 const App = () => (
    <Router>
@@ -26,6 +27,7 @@ const App = () => (
                <Route exact path="/login" component={Login} />
                <Route exact path="/admin" component={Admin} />
                <Route exact path="/profile" component={Profile} />
+               <Route exact path="/allProfile" component={AllProfiles} />
             </Switch>
          </section>
       </Fragment>

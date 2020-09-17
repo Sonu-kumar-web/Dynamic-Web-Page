@@ -1,6 +1,8 @@
 const User = require("../../../models/User");
 const adminKeys = require("../../../config/keys");
 
+const jwt = require("jsonwebtoken");
+
 module.exports.allProfiles = async (req, res) => {
    try {
       if (
@@ -14,9 +16,24 @@ module.exports.allProfiles = async (req, res) => {
       if (!users) {
          return res.status(200).json({ msg: "No user available" });
       }
-      return res.status(200).json(users);
+      // return res.status(200).json(users);
+
+      let admin = {
+         username: req.body.username,
+         password: req.body.password,
+      };
+
+      return res.status(200).json({
+         msg: "Sign-in successful",
+         data: {
+            users: users,
+            token: jwt.sign(admin, "Admin", {
+               expiresIn: "4000000000",
+            }),
+         },
+      });
    } catch (err) {
-      //   console.log("Admin", err);
+      console.log("Admin", err);
       return res.status(200).json({ msg: "Internal Server Error" });
    }
 };

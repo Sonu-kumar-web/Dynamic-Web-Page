@@ -49,7 +49,7 @@ class Login extends React.Component {
       return (
          <div>
             {isLoggedIn ? (
-               <Profile userid={id} loggedInValue={isLoggedIn} />
+               <Profile userid={id} value="profile" />
             ) : (
                <section className="container Sign-up">
                   <h1 className="large text-primary">Sign In</h1>
